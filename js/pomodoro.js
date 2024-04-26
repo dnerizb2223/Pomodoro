@@ -1,8 +1,9 @@
 let timer;
-let minutes = 5;
+let minutes = 25;
 let seconds = 0;
 let isRunning = false;
 let isPaused = false;
+let isWorkTime = true;
 
 function startPauseTimer() {
     const startPauseButton = document.getElementById("startPause");
@@ -26,10 +27,22 @@ function startPauseTimer() {
 }
 
 function updateTimer() {
+    const timerDisplay = document.getElementById("timer");
+
     if (seconds === 0 && minutes === 0) {
         clearInterval(timer);
         isRunning = false;
-        alert("¡Tiempo terminado!");
+        if (isWorkTime) {
+            alert("¡Tiempo de trabajo terminado! Tómate un descanso de 5 minutos.");
+            minutes = 5;
+            isWorkTime = false;
+        } else {
+            alert("¡Tiempo de descanso terminado! Regresa al trabajo.");
+            minutes = 25;
+            isWorkTime = true;
+        }
+        seconds = 0;
+        startPauseTimer();
         return;
     }
 
@@ -40,26 +53,27 @@ function updateTimer() {
         seconds--;
     }
 
-    displayTime();
+    displayTime(timerDisplay);
 }
 
 function resetTimer() {
     clearInterval(timer);
     isRunning = false;
     isPaused = false;
-    minutes = 5; // Cambiado de 25 a 5
+    isWorkTime = true;
+    minutes = 25;
     seconds = 0;
     document.getElementById("startPause").textContent = "Start";
-    displayTime();
+    displayTime(document.getElementById("timer"));
 }
 
-function displayTime() {
+function displayTime(timerDisplay) {
     const displayMinutes = minutes < 10 ? `0${minutes}` : minutes;
     const displaySeconds = seconds < 10 ? `0${seconds}` : seconds;
-    document.getElementById("timer").textContent = `${displayMinutes}:${displaySeconds}`;
+    timerDisplay.textContent = `${displayMinutes}:${displaySeconds}`;
 }
 
 document.getElementById("startPause").addEventListener("click", startPauseTimer);
 document.getElementById("reset").addEventListener("click", resetTimer);
 
-displayTime();
+displayTime(document.getElementById("timer"));
