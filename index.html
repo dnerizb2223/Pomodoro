@@ -3,15 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pomodoro Timer</title>
+    <title>Pomodoro</title>
     <link rel="stylesheet" href="css/pomodoro.css">
 </head>
 <body>
-    <div class="timer-container">
-        <div id="timer">25:00</div>
-        <button id="startPause">Start</button>
-        <button id="reset">Reset</button>
+    <div class="timers-container">
+        <div class="timer-container" id="pomodoro-timer-container">
+            <h2>Pomodoro Timer</h2>
+            <div id="pomodoro-timer">25:00</div>
+            <button id="startPause">Start</button>
+            <button id="reset">Reset</button>
+        </div>
+        <div class="timer-container" id="short-break-timer-container">
+            <h2>Short Break Timer</h2>
+            <div id="short-break-timer">05:00</div>
+            <button id="shortBreakStart">Start</button>
+            <button id="shortBreakReset">Reset</button>
+        </div>
+        <div class="timer-container" id="long-break-timer-container">
+            <h2>Long Break Timer</h2>
+            <div id="long-break-timer">15:00</div>
+            <button id="longBreakStart">Start</button>
+            <button id="longBreakReset">Reset</button>
+        </div>
     </div>
+
+    <div class="kanban-container">
+        <div class="column" id="pending-column" data-category="pending">
+            <h2>Pending</h2>
+        </div>
+        <div class="column" id="progress-column" data-category="progress">
+            <h2>In Progress</h2>
+        </div>
+        <div class="column" id="completed-column" data-category="completed">
+            <h2>Completed</h2>
+        </div>
+    </div>
+
+    <button id="new-task-button">New Task</button>
+
+    <div id="new-task-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="new-task-form">
+                <label for="task-title">Title:</label><br>
+                <input type="text" id="task-title" name="task-title"><br>
+                <label for="task-description">Description:</label><br>
+                <textarea id="task-description" name="task-description"></textarea><br>
+                <label for="task-category">Category:</label><br>
+                <input type="text" id="task-category" name="task-category"><br><br>
+                <button type="submit">Create Task</button>
+            </form>
+        </div>
+    </div>
+
     <script src="js/pomodoro.js"></script>
 </body>
 </html>
