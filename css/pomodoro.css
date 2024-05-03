@@ -3,50 +3,69 @@
 /* Container for the entire page */
 body {
     display: flex;
-    flex-direction: column; /* Apila los elementos verticalmente */
-    align-items: center; /* Alinea los elementos al centro horizontalmente */
-    height: 100vh; /* Usa toda la altura de la ventana */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Alinear al principio verticalmente */
+    height: 100vh;
 }
 
+/* Estilo para los temporizadores */
 .timers-container {
     display: flex;
-    justify-content: space-around; /* Espacio uniforme entre los temporizadores */
-    width: 100%; /* Ocupa todo el ancho disponible */
-    margin-bottom: 20px; /* Espacio inferior entre los temporizadores y el kanban */
+    flex-direction: column; /* Cambiar la dirección a vertical */
+    align-items: center; /* Centrar horizontalmente */
+    width: 100%;
+    margin-top: 50px; /* Espacio superior */
 }
 
 .timer-container {
     text-align: center;
-    width: 200px; /* Ancho fijo para cada temporizador */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .timer-container h2 {
     margin-top: 0;
+    color: #333;
 }
 
-.timer-container button {
-    margin-top: 10px;
+/* Estilo para los temporizadores */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px; /* Hacer los bordes redondeados */
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s; /* Agregar transición para el cambio de color de fondo y la sombra */
+}
+
+button:hover {
+    background-color: #45a049;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Cambiar la sombra al pasar el ratón */
 }
 
 /* Kanban Board */
 .kanban-container {
     display: flex;
-    margin-top: 50px; /* Espacio superior */
+    margin-top: 50px;
 }
 
 .column {
-    width: 30%; /* Ancho de cada columna */
+    width: 30%;
     padding: 20px;
-    background-color: #f2f2f2;
-    border-radius: 5px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-left: 20px; /* Espacio entre columnas */
+    margin-left: 20px;
 }
 
-/* Asegurémonos de que la primera columna no tenga margen izquierdo */
 .column:first-child {
     margin-left: 0;
 }
@@ -55,8 +74,8 @@ body {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -66,14 +85,14 @@ body {
 }
 
 .task p {
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 .task.dragging {
     opacity: 0.5;
 }
 
-/* CSS for hiding the modal */
+/* CSS para ocultar el modal */
 .modal {
     display: none;
     position: fixed;
@@ -83,14 +102,15 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 80%;
 }
 
@@ -106,4 +126,13 @@ body {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+select {
+    padding: 10px; /* Aumentar el espacio interno */
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
 }
