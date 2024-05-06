@@ -1,6 +1,3 @@
-/* styles.css */
-
-/* Container for the entire page */
 body {
     display: flex;
     flex-direction: column;
@@ -10,14 +7,6 @@ body {
 }
 
 /* Estilo para los temporizadores */
-.timers-container {
-    display: flex;
-    flex-direction: column; /* Cambiar la dirección a vertical */
-    align-items: center; /* Centrar horizontalmente */
-    width: 100%;
-    margin-top: 50px; /* Espacio superior */
-}
-
 .timer-container {
     text-align: center;
     width: 200px;
