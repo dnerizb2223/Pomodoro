@@ -116,11 +116,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function createTask(title, description, category) {
-        const taskId = 'task_' + Date.now(); // Genera un ID único
+        const taskId = 'task_' + Date.now(); 
         const task = document.createElement("div");
         task.classList.add("task");
-        task.setAttribute("draggable", "true"); // Establece draggable en true para permitir el arrastre
-        task.id = taskId; // Asigna el ID único al elemento
+        task.setAttribute("draggable", "true"); 
+        task.id = taskId; 
         task.dataset.category = category;
 
         const taskTitle = document.createElement("h3");
@@ -139,41 +139,49 @@ document.addEventListener("DOMContentLoaded", () => {
         return task;
     }
 
-
     function addTaskToPending(title, description, category) {
         const task = createTask(title, description, category);
+        task.addEventListener('dragstart', drag);
         pendingColumn.appendChild(task);
     }
-
+    
     addTaskToPending("Terminar Proyecto", "Completar las tareas restantes para el proyecto", "Backend");
     updateTaskSelector();
 
     function allowDrop(ev) {
-        ev.preventDefault(); // Permite soltar elementos en el contenedor
+        ev.preventDefault();
     }
     
     function drag(ev) {
-        ev.dataTransfer.setData("text", ev.target.id); // Guarda el ID del elemento arrastrado
+        const taskData = {
+            id: ev.target.id,
+            category: ev.target.dataset.category
+        };
+        const taskDataString = JSON.stringify(taskData); 
+        console.log("Datos del elemento arrastrado:", taskDataString); 
+        ev.dataTransfer.setData("text/plain", taskDataString);
     }
     
     function drop(ev) {
-        ev.preventDefault(); // Evita el comportamiento predeterminado de la soltura
-        var data = ev.dataTransfer.getData("text"); // Obtiene el ID del elemento arrastrado
-        var draggedElement = document.getElementById(data); // Obtiene el elemento arrastrado del DOM
-    
-        // Verifica si el elemento arrastrado existe en el DOM
-        if (draggedElement) {
-            ev.target.appendChild(draggedElement); // Agrega el elemento arrastrado al contenedor de soltura
+        ev.preventDefault();
+        const taskDataString = ev.dataTransfer.getData("text/plain");
+        if (taskDataString) {
+            const taskData = JSON.parse(taskDataString);
+            const draggedElement = document.getElementById(taskData.id);
+            if (draggedElement) {
+                ev.currentTarget.appendChild(draggedElement);
+            } else {
+                console.error("Elemento arrastrado no encontrado en el DOM");
+            }
         } else {
-            console.error("Elemento arrastrado no encontrado en el DOM");
+            console.error("Datos del elemento arrastrado no encontrados en el evento");
         }
-    }   
-
+    }
+    
     document.querySelectorAll('.task').forEach(task => {
         task.addEventListener('dragstart', drag);
     });
 
-    // Asignar eventos de soltura a las columnas con la clase 'column'
     document.querySelectorAll('.column').forEach(column => {
         column.addEventListener('dragover', allowDrop);
         column.addEventListener('drop', drop);

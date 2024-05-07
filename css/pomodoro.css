@@ -100,7 +100,7 @@ button:hover {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 80%;
+    width: 15%;
 }
 
 .close {
@@ -124,4 +124,39 @@ select {
     font-size: 16px;
     cursor: pointer;
     margin: 10px;
+}
+
+/* Estilo para los labels en el formulario */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Estilo para los inputs y textareas en el formulario */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+}
+
+/* Estilo para el botón del formulario */
+button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Agregar transición para el cambio de color de fondo y la sombra */
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Cambiar la sombra al pasar el ratón */
 }
