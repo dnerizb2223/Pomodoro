@@ -2,11 +2,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Alinear al principio verticalmente */
+    justify-content: flex-start; 
     height: 100vh;
 }
 
-/* Estilo para los temporizadores */
 .timer-container {
     text-align: center;
     width: 200px;
@@ -21,23 +20,22 @@ body {
     color: #333;
 }
 
-/* Estilo para los temporizadores */
 button {
     margin-top: 20px;
     padding: 10px 20px;
     border: none;
-    border-radius: 25px; /* Hacer los bordes redondeados */
+    border-radius: 25px; 
     background-color: #4CAF50;
     color: white;
     font-size: 16px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, box-shadow 0.3s; /* Agregar transición para el cambio de color de fondo y la sombra */
+    transition: background-color 0.3s, box-shadow 0.3s; 
 }
 
 button:hover {
     background-color: #45a049;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Cambiar la sombra al pasar el ratón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
 }
 
 /* Kanban Board */
@@ -81,7 +79,6 @@ button:hover {
     opacity: 0.5;
 }
 
-/* CSS para ocultar el modal */
 .modal {
     display: none;
     position: fixed;
@@ -118,7 +115,7 @@ button:hover {
 }
 
 select {
-    padding: 10px; /* Aumentar el espacio interno */
+    padding: 10px; 
     border: 1px solid #ccc;
     background-color: #f2f2f2;
     font-size: 16px;
@@ -126,14 +123,12 @@ select {
     margin: 10px;
 }
 
-/* Estilo para los labels en el formulario */
 label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
 }
 
-/* Estilo para los inputs y textareas en el formulario */
 input[type="text"],
 textarea {
     width: 100%;
@@ -141,10 +136,9 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 10px;
-    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    box-sizing: border-box; 
 }
 
-/* Estilo para el botón del formulario */
 button[type="submit"] {
     padding: 10px 20px;
     border: none;
@@ -153,10 +147,10 @@ button[type="submit"] {
     color: white;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s; /* Agregar transición para el cambio de color de fondo y la sombra */
+    transition: background-color 0.3s, box-shadow 0.3s; 
 }
 
 button[type="submit"]:hover {
     background-color: #45a049;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Cambiar la sombra al pasar el ratón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
 }
